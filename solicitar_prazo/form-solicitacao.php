@@ -111,7 +111,7 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario']) == false ){
                     </div>
                     <div class="form-group col-md-6 espaco">
                         <label for="anexo" >Inserir Arquivos</label>
-                        <input type="file" name="anexos[]" multiple="multiple" id="anexo" class="form-control-file">
+                        <input type="file" required name="anexos[]" multiple="multiple" id="anexo" class="form-control-file">
                     </div>
                 </div>
 

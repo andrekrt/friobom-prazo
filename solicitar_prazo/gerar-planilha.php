@@ -71,26 +71,11 @@ $tipoUsuario = $_SESSION['tipoUsuario'];
                     
                 }
                 $html .= '</table>';
-                /*header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-                header("Last-Modified: ". gmdate("D,d M YH:i:s"). "GMT");
-                header("Cache-Control: no-cache, must-revalidate");
-                header("Pragma: no-cache");
-                header("Content-type: application/x-msexcel");
-                header ("Content-Disposition: attachment; filename=\"{$arquivo}\"");
-                header ("Content-Description: PHP Generated Data");
-                echo $html;
-                exit();*/
                 
-                //nova forma de gerar excel
-                 
-                // Configurações header para forçar o download  
                 header('Content-Type: application/vnd.ms-excel');
                 header('Content-Disposition: attachment;filename="'.$arquivo.'"');
                 header('Cache-Control: max-age=0');
-                // Se for o IE9, isso talvez seja necessário
                 header('Cache-Control: max-age=1');
-                   
-                // Envia o conteúdo do arquivo  
                 echo $html;  
                 exit;
             }

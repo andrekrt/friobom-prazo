@@ -179,7 +179,7 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false ){
                                         <div class="modal-body">
                                             <form action="analise.php" method="post">
                                                 <div class="form-row">
-                                                    <input type="hidden" name="idSolicitacao" value="<?php echo $idSolicitacao; ?>">
+                                                    <input type="hidden" name="idSolicitacao" value="<?php echo $idPrazo; ?>">
                                                     <div class="form-group col-md-12">
                                                         <label for="data_solicitacao" class="col-form-label">Data Solicitação</label>
                                                         <input type="text" class="form-control" Readonly id="data_solicitacao" value="<?php echo date("d/m/Y",strtotime($dado['data_solicitacao']));  ?>">
@@ -429,7 +429,7 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false ){
                                             
                                         </div>
                                         <div class="modal-footer">
-                                                <a href="excluir.php?idSolicitacao=<?php echo $idPrazo; ?>" class="btn btn-danger" > Excluir </a>
+                                                <a href="excluir.php?idSolicitacao=<?php echo $idSolicitacao; ?>" class="btn btn-danger" > Excluir </a>
                                                 <button type="submit" name="analisar" class="btn btn-primary">Atualizar</button>
                                             </form>
                                         </div>
