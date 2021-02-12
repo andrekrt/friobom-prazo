@@ -192,7 +192,7 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false ){
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="nome_cliente" class="col-form-label">Nome Cliente</label>
-                                                        <input type="text" class="form-control" name="nome_cliente" Readonly id="fone" value="<?php echo $dado['nome_cliente'] ?>">
+                                                        <input type="text" class="form-control" name="nome_cliente" Readonly id="nome_cliente" value="<?php echo $dado['nome_cliente'] ?>">
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
@@ -327,7 +327,7 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false ){
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Solicitante:<?php echo $dado['nome'] ?></h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Solicitante: <?php echo $dado['nome'] ?></h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -348,7 +348,7 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false ){
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="nome_cliente" class="col-form-label">Nome Cliente</label>
-                                                        <input type="text" class="form-control" name="nome_cliente" Readonly id="fone" value="<?php echo $dado['nome_cliente'] ?>">
+                                                        <input type="text" class="form-control" name="nome_cliente" Readonly id="nome_cliente" value="<?php echo $dado['nome_cliente'] ?>">
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
@@ -478,7 +478,7 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false ){
                             <td scope="col" class="text-center">
                                 
                                 <?php
-                                    if($dado['status_solicitacao']=="Em Análise"){
+                                    if($dado['status_solicitacao']!="Reprovado" && $dado['status_solicitacao']!="Aprovado"){
                                 ?>
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal<?php echo $idSolicitacao; ?>" data-whatever="@mdo" value="<?php echo $idSolicitacao ?>" name="idSolic" >Editar</button>
                                 <?php        
@@ -508,7 +508,7 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false ){
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="nome_cliente" class="col-form-label">Nome Cliente</label>
-                                                    <input type="text" class="form-control" name="nome_cliente" id="fone" value="<?php echo $dado['nome_cliente'] ?>">
+                                                    <input type="text" class="form-control" name="nome_cliente" id="nome_cliente" value="<?php echo $dado['nome_cliente'] ?>">
                                                 </div>
                                             </div>
                                             <div class="form-row">

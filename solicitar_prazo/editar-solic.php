@@ -23,15 +23,12 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false && $_SE
     if($atualizar){
         if($anexo != " "){
             $diretorio = "uploads/".$idSolic;
-            mkdir($diretorio, 0755);
             for($i=0;$i<count($anexo['name']); $i++){
                 $destino = "uploads/".$idSolic."/".$anexo['name'] [$i];
-                if(move_uploaded_file($anexo['tmp_name'][$i], $destino)){
-                    echo "<script> alert('Dados Atualizado com Sucesso')</script>";
-                    echo "<script> window.location.href='index.php' </script>";
-                }else{
-                    echo "Erro no upload dos arquivos";
-                }
+                move_uploaded_file($anexo['tmp_name'][$i], $destino);
+
+                echo "<script> alert('Dados Atualizado com Sucesso')</script>";
+                echo "<script> window.location.href='index.php' </script>";
                 
             }
         }else{
