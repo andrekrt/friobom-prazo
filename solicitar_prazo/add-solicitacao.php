@@ -21,7 +21,7 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario']) == false ){
     
     $statusSolicitacao = "Em Análise";
 
-    $consulta = $db->query("SELECT * FROM `solicitacoes_prazo` WHERE codigo_cliente = '$codigoCliente' ");
+    $consulta = $db->query("SELECT * FROM `solicitacoes_prazo` WHERE codigo_cliente = '$codigoCliente' AND status_solicitacao = 'Aprovado' ");
     
 
     if($consulta->rowCount()>0){
