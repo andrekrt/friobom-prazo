@@ -257,6 +257,7 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false ){
                                                             <option value="Cliente não Atende">Cliente não Atende</option>
                                                             <option value="Cliente Fora de Área">Cliente Fora de Área</option>
                                                             <option value="Cliente Fora de Área">Sem foto</option>
+                                                            <option value="Cliente Fora de Área">Analisado</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-md-6">

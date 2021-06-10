@@ -22,9 +22,11 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario']) == false ){
     $statusSolicitacao = "Em Análise";
 
     $consulta = $db->query("SELECT * FROM `solicitacoes_prazo` WHERE codigo_cliente = '$codigoCliente' AND status_solicitacao = 'Aprovado' ");
-    
 
-    if($consulta->rowCount()>0){
+    $consultaData = $db->query("SELECT * FROM solicitacoes_prazo WHERE codigo_cliente = '$codigoCliente' AND data_solicitacao = '$dataSolicitacao'");
+    
+    
+    if($consulta->rowCount()>0 || $consultaData->rowCount()>0){
         echo "<script> alert('Já existe solicitação para esse cliente')</script>";
         echo "<script> window.location.href='index.php' </script>";
     }else{
