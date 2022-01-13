@@ -139,7 +139,7 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false ){
                                 if($filtrado->rowCount()>0){
                                     $dados = $filtrado->fetchAll();
                                     foreach($dados as $dado){
-                                        $idPrazo = $dado['idsolicitacoes_prazo'];
+                                        $idSolicitacao = $dado['idsolicitacoes_prazo'];
                         ?>
                             <tr>
                                 <td scope="col" class="text-center"> <?php echo date("d/m/Y", strtotime($dado['data_solicitacao']));  ?> </td>
@@ -158,7 +158,7 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false ){
                                 <?php
                                     }else{
                                 ?>
-                                    <td scope="col" class="text-center"> <a target="_blank" href="uploads/<?php echo $idPrazo ?>" > Anexos </a> </td>
+                                    <td scope="col" class="text-center"> <a target="_blank" href="uploads/<?php echo $idSolicitacao ?>" > Anexos </a> </td>
                                 <?php        
                                     }
                                 ?>
@@ -167,11 +167,11 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false ){
                                 <td scope="col" class="text-center"> <?php echo $dado['status_solicitacao']; ?> </td>
                                 <td scope="col" class="text-center"> <?php echo $dado['nome']; ?> </td>
                                 <td scope="col" class="text-center">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal<?php echo $idPrazo; ?>" data-whatever="@mdo" value="<?php echo $idPrazo; ?>" name="idSolic" >Visualisar</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal<?php echo $idSolicitacao; ?>" data-whatever="@mdo" value="<?php echo $idSolicitacao; ?>" name="idSolic" >Visualisar</button>
                                 </td>
                             </tr>
                             <!-- INICIO MODAL -->
-                            <div class="modal fade" id="modal<?php echo $idPrazo; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="modal<?php echo $idSolicitacao; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -183,7 +183,7 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false ){
                                         <div class="modal-body">
                                             <form action="analise.php" method="post">
                                                 <div class="form-row">
-                                                    <input type="hidden" name="idSolicitacao" value="<?php echo $idPrazo; ?>">
+                                                    <input type="hidden" name="idSolicitacao" value="<?php echo $idSolicitacao; ?>">
                                                     <div class="form-group col-md-12">
                                                         <label for="data_solicitacao" class="col-form-label">Data Solicitação</label>
                                                         <input type="text" class="form-control" Readonly id="data_solicitacao" value="<?php echo date("d/m/Y",strtotime($dado['data_solicitacao']));  ?>">
@@ -272,16 +272,26 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false ){
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
-                                                    <div class="form-group col-md-12">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="restricao" >Restrição</label>
+                                                        <select name="restricao" id="restricao" class="custom-select">
+                                                            <option value="<?php echo $dado['restricao'] ?>"><?php echo $dado['restricao'] ?></option>
+                                                            <option value="Até R$500,00">Até R$500,00</option>
+                                                            <option value="Até R$3000,00">Até R$3000,00</option>
+                                                            <option value="Até R$5.000,00">Até R$5.000,00</option>
+                                                            <option value="Até R$10.000,00">Até R$10.000,00</option>
+                                                            <option value="Acima R$50.000,00">Acima R$50.000,00</option>
+                                                            <option value="Acima de R$1.000.000,00">Acima de R$1.000.000,00</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
                                                         <label for="obsAnalise"> Obs de Análise </label>
                                                         <input type="text" name="obsAnalise" class="form-control">
                                                     </div>
                                                 </div>
-                                                
-                                            
                                         </div>
                                         <div class="modal-footer">
-                                                <a href="excluir.php?idSolicitacao=<?php echo $idPrazo; ?>" class="btn btn-danger" > Excluir </a>
+                                                <a href="excluir.php?idSolicitacao=<?php echo $idSolicitacao; ?>" class="btn btn-danger" > Excluir </a>
                                                 <button type="submit" name="analisar" class="btn btn-primary">Atualizar</button>
                                             </form>
                                         </div>
@@ -432,13 +442,22 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false ){
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
-                                                    <div class="form-group col-md-12">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="restricao" >Restrição</label>
+                                                        <select name="restricao" id="restricao" class="custom-select">
+                                                            <option value="<?php echo $dado['restricao'] ?>"><?php echo $dado['restricao'] ?></option>
+                                                            <option value="Até R$500,00">Até R$500,00</option>
+                                                            <option value="Até R$3000,00">Até R$3000,00</option>
+                                                            <option value="Até R$10.000,00">Até R$10.000,00</option>
+                                                            <option value="Acima R$50.000,00">Acima R$50.000,00</option>
+                                                            <option value="Acima de R$1.000.000,00">Acima de R$1.000.000,00</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
                                                         <label for="obsAnalise"> Obs de Análise </label>
                                                         <input type="text" name="obsAnalise" class="form-control">
                                                     </div>
                                                 </div>
-                                                
-                                            
                                         </div>
                                         <div class="modal-footer">
                                                 <a href="excluir.php?idSolicitacao=<?php echo $idSolicitacao; ?>" class="btn btn-danger" > Excluir </a>
@@ -464,6 +483,7 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false ){
                             <th scope="col" class="text-center"> RCA</th>
                             <th scope="col" class="text-center"> Prazo </th>
                             <th scope="col" class="text-center"> Status</th>
+                            <th scope="col" class="text-center"> Restrição</th>
                             <th scope="col" class="text-center"> Obs de Análise</th>
                             <th scope="col" class="text-center"> Ações</th>
                         </tr>
@@ -479,13 +499,14 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false ){
                                         $idSolicitacao = $dado['idsolicitacoes_prazo'];
                         ?>
                         <tr>
-                            <td class="text-center"> <?php echo date("d-m-Y", strtotime($dado['data_solicitacao'])); ?> </td>
+                            <td class="text-center"> <?php echo date("d/m/Y", strtotime($dado['data_solicitacao'])); ?> </td>
                             <td class="text-center"> <?php echo $dado['serasa']; ?> </td>
                             <td class="text-center"> <?php echo $dado['codigo_cliente']; ?> </td>
                             <td class="text-center"> <?php echo $dado['nome_cliente']; ?> </td>
                             <td class="text-center"> <?php echo $dado['rca']; ?> </td>
                             <td class="text-center"> <?php echo $dado['prazo_dias']. " Dias"; ?> </td>
                             <td class="text-center"> <?php echo $dado['status_solicitacao']; ?> </td>
+                            <td class="text-center"> <?php echo $dado['restricao']; ?> </td>
                             <td class="text-center"> <?php echo $dado['obs_analise']; ?> </td>
                             <td scope="col" class="text-center">
                                 
