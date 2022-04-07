@@ -9,7 +9,7 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario']) == false && $_
     $email = filter_input(INPUT_POST, 'email');
     $senha = md5(filter_input(INPUT_POST, 'senha'));
 
-    $atualiza = $db->query("UPDATE usuarios SET nome = '$nome', email = '$email', senha = '$senha' ");
+    $atualiza = $db->query("UPDATE usuarios SET nome = '$nome', email = '$email', senha = '$senha' WHERE idusuarios = '$idUsuarioListado' ");
     if($atualiza){
         echo "<script> alert('Dados Atualizado com Sucesso')</script>";
         echo "<script> window.location.href='supervisores.php' </script>";

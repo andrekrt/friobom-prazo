@@ -15,6 +15,7 @@ if(isset($_POST['email']) && empty($_POST['email'])==false){
             $dado = $sql->fetch();
 
             $_SESSION['idUsuario'] = $dado['idusuarios'];
+            $_SESSION['tipoUsuario'] = $dado['idtipo_usuario'] ;
             header("Location:index.php");
 
         }else{
@@ -44,24 +45,31 @@ if(isset($_POST['email']) && empty($_POST['email'])==false){
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
     </head>
-    <body class="login">
-        
-        <div class="container centralizar-login">
-            <img src="assets/images/logo.png" class="img-fluid logo" alt="">
-            <form action="" method="post">
-                <div class="form-grupo espaco">
-                    <label for="login">E-MAIL:</label>
-                    <input type="email" required name="email" class="form-control" id="login">
+    <body >
+        <div class="container-fluid login">
+            <div class="area-title-login">
+                <img src="assets/images/logo.png" alt="">
+            </div>
+            <div class="area-login">
+                <div class="cabecalho">
+                    <img src="assets/images/login.png" class="img-fluid" alt="">
+                    <p>Entre com seu Login e Senha</p>
                 </div>
-                <div class="form-grupo espaco">
-                    <label for="senha">SENHA:</label>
-                    <input type="password" required name="senha" class="form-control" id="senha">
-                </div>
-                <button type="submit" class="btn btn-primary"> Entrar</button> <br><br>
-                <p class="erro"> <?php echo $erro;  ?> </p> </p>
-            </form> <br> <br>
-            
+                <form action="" method="post">
+                    <div class="form-grupo espaco">
+                        <label for="login">E-MAIL:</label>
+                        <input type="email" required name="email" class="form-control" id="login">
+                    </div>
+                    <div class="form-grupo espaco">
+                        <label for="senha">SENHA:</label>
+                        <input type="password" required name="senha" class="form-control" id="senha">
+                    </div>
+                    <button type="submit" class="btn btn-primary"> Entrar</button> <br><br>
+                    <p class="erro"> <?php echo $erro;  ?> </p> </p>
+                </form>
+            </div>
         </div>
+        
 
         <script src="assets/js/jquery.js"></script>
         <script src="assets/js/bootstrap.bundle.min.js"></script>

@@ -16,7 +16,6 @@ if(isset($_SESSION['idUsuario']) && empty($_SESSION['idUsuario'])==false && $_SE
     $predio = filter_input(INPUT_POST, 'predio');
     $anexo = $_FILES['anexos'];
     $anexo_nome01 = $anexo['name'][0];
-
     
     $atualizar = $db->query("UPDATE solicitacoes_prazo SET codigo_cliente='$codCliente', nome_cliente = '$nomeCliente', fone = '$fone01', fone2 = '$fone02', prazo_dias = '$prazo', rca = '$rca', firma_no_nome = '$firma', predio_proprio = '$predio', anexos = '$anexo_nome01' WHERE idsolicitacoes_prazo = $idSolic ");
 
