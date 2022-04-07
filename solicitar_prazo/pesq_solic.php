@@ -64,11 +64,11 @@ foreach($empRecords as $row){
         "fone"=>$row['fone'] ,
         "rca"=>$row['rca'],
         "obs"=>$row['obs'],
-        "anexos"=>"ok",
+        "anexos"=>' <a target="_blank" href="uploads/'.$row['idsolicitacoes_prazo'].'">Anexos</a> ',
         "prazo_dias"=>$row['prazo_dias'] . " Dias",
         "status_solicitacao"=>utf8_encode(utf8_decode($row['status_solicitacao'])),
         "solicitante"=>utf8_encode(utf8_decode($row['nome'])),
-        "acoes"=> '<a href="javascript:void();" data-id="'.$row['idsolicitacoes_prazo'].'"  class="btn btn-info btn-sm editbtn" >Detalhes</a>  '
+        "acoes"=> '<a href="javascript:void();" data-id="'.$row['idsolicitacoes_prazo'].'"  class="btn btn-info btn-sm editbtn" >Detalhes</a> '
     );
 }
 
